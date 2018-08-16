@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Row, Col } from 'antd';
 
 class App extends Component {
   render() {
@@ -20,13 +19,6 @@ class App extends Component {
             <div className="col-md-11">right 9</div>
           </div>
         </div>
-        <Row>
-          <Col span={4}>col-4</Col>
-          <Col span={6} offset={8}>
-            col-8
-          </Col>
-          <Col span={6}>col-6</Col>
-        </Row>
       </div>
     );
   }
