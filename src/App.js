@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route,Switch } from 'react-router-dom'
-import { Layout, Menu, Icon } from 'antd'
+import { Layout, Menu,Breadcrumb, Icon } from 'antd'
 import './App.less';
 import Home from "./view/home";
 import About from "./view/about";
@@ -23,7 +23,7 @@ class App extends Component {
         <Sider
           trigger={null}
           collapsible
-          collapsed={this.state.collapsed}>
+          collapsed={this.state.collasped}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
@@ -41,13 +41,28 @@ class App extends Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}>
+          <Header>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.toggle}
+              onClick={this.toogle}
             />
+            {/* <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              style={{ lineHeight: '64px',float:'left' }}
+            >
+              <Menu.Item key="1">nav 1</Menu.Item>
+              <Menu.Item key="2">nav 2</Menu.Item>
+              <Menu.Item key="3">nav 3</Menu.Item>
+            </Menu> */}
           </Header>
+          <Breadcrumb>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+            <Breadcrumb.Item>App</Breadcrumb.Item>
+          </Breadcrumb>
           <Content>
             <BrowserRouter>
                 <Switch>
