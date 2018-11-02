@@ -1,22 +1,13 @@
-import React, { Component } from 'react';
-import Fetch from 'node-fetch'
+import React, { Component } from 'react'
+import request from '../utils/request'
+
 class Home extends Component {
   State={
     tableData:[]
   }
   getData(){
-    Fetch('http://api.dev.edu.jingshonline.net/api/services/app/CourseSubject/GetCourseSubjectList', { method: 'Get',cache: 'no-cache',headers: {
-      "Content-Type": "application/json"
-    }}).then(res=>{
+    request.get('/api/services/app/CourseSubject/GetCourseSubjectList').then(res=>{
       console.log(res)
-      return res.json()
-    }).then(data=>{
-      console.log(data)
-      this.setState({
-        tableData:data.result
-      })
-    }).catch((error)=>{
-      console.log(error)
     })
   }
   //页面渲染前
@@ -31,12 +22,12 @@ class Home extends Component {
 
   //页面更新前
   componentWillUpdate(newprops, oldprops) {
-    console.log(newprops, oldprops)
+
   }
 
   //页面更新完成
   componentDidUpdate(newprops, oldprops) {
-    console.log(newprops, oldprops)
+
   }
 
   //页面销毁前
@@ -46,6 +37,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <p>Home</p>
         {this.State.tableData}
       </div>
     )

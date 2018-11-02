@@ -6,7 +6,7 @@ const apiBaseUrl = 'http://api.dev.edu.jingshonline.net'
 
 const combineURL = (baseUrl, path) => { return `${baseUrl.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}` }
 
-const isAbsoluteURL = (url) => /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+const isAbsoluteURL = (url) => /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 
 const encode = (value) => {
   return encodeURIComponent(value).replace(/%40/gi, '@')
@@ -40,7 +40,7 @@ const timeout = (p, ms = 30 * 1000) =>
       throw error;
     }),
   ]);
-0
+
 // Request factory
 function request(url, options, method) {
   const { endpoint, ...rest } = interceptRequest(url, options, method);
@@ -53,7 +53,7 @@ function request(url, options, method) {
 
 request.defaults = {
   baseURL: apiBaseUrl,
-  timeout: 10 * 5000,
+  timeout: 10 * 1000,
   headers: {
     Accept: 'application/json',
   },
